@@ -25,7 +25,7 @@ class BanAppealModule : Module {
             return
         }
 
-        val embed = banAppealEmbed(channel)
+        val embed = banAppealEmbed()
         event.replyEmbeds(embed).queue()
     }
 
@@ -34,12 +34,12 @@ class BanAppealModule : Module {
     fun onMessageReceived(event: MessageReceivedEvent) {
         val channel = event.channel as? TextChannel ?: return
         if (event.message.contentRaw.contains("!appeal") && channel.name.startsWith("ticket-")) {
-            val embed = banAppealEmbed(channel)
+            val embed = banAppealEmbed()
             channel.sendMessageEmbeds(embed).queue()
         }
     }
 
-    private fun banAppealEmbed(channel: TextChannel): MessageEmbed {
+    private fun banAppealEmbed(): MessageEmbed {
         val embedBuilder = EmbedBuilder()
         embedBuilder.setTitle("Ban Appeal Form")
         embedBuilder.setDescription("""
