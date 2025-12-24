@@ -6,10 +6,26 @@ import net.dv8tion.jda.api.interactions.commands.OptionType
 
 object Util {
 
+    fun hexToIntColor(hexColor: String): Int {
+        val colorString = hexColor.removePrefix("#")
+
+        return when (colorString.length) {
+            8 -> colorString.toLong(radix = 16).toInt()
+            6 -> "FF$colorString".toLong(radix = 16).toInt()
+            else -> throw IllegalArgumentException("Invalid hex color format: $hexColor")
+        }
+    }
+
+
 
     // Enum
 
-    fun <E : Enum<E>> getEnumByName(enumClass: Class<E>, name: String): E? {
+    fun formatEnumName(name: String): String {
+        return name.lowercase().replace('_', ' ').split(' ').joinToString(" ") { it.replaceFirstChar { char -> char.uppercase() } }
+    }
+
+    fun <E : Enum<E>> getEnumByName(enumClass: Class<E>, name: String?): E? {
+        if (name == null) return null
         return try {
             java.lang.Enum.valueOf(enumClass, name.uppercase())
         } catch (e: IllegalArgumentException) {
@@ -42,7 +58,7 @@ object Util {
         return getOption<T?>(optionMapping, optionType, null)
     }
 
-    fun <T> getOption(optionMapping: OptionMapping?, optionType: OptionType?, defaultValue: T?): T? {
+    fun <T> getOption(optionMapping: OptionMapping?, optionType: OptionType?, defaultValue: T): T? {
         if (optionMapping == null) return defaultValue
 
         return when (optionType) {

@@ -1,4 +1,4 @@
-package dev.jsinco.luma.discord
+package dev.jsinco.luma.discord.modules
 
 import dev.jsinco.discord.framework.commands.DiscordCommand
 import dev.jsinco.discord.framework.util.Module

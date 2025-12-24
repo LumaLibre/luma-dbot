@@ -1,8 +1,9 @@
-package dev.jsinco.luma.discord
+package dev.jsinco.luma.discord.commands
 
 import dev.jsinco.discord.framework.commands.CommandModule
 import dev.jsinco.discord.framework.commands.DiscordCommand
 import dev.jsinco.discord.framework.settings.Settings
+import dev.jsinco.luma.discord.Util
 import net.dv8tion.jda.api.OnlineStatus
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.entities.Activity
