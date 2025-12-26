@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.jsinco.discord:jda-framework:1.7")
+    implementation("dev.jsinco.discord:jda-framework:1.8")
     // JDA
     implementation("net.dv8tion:JDA:5.0.0-beta.24") {
         exclude("org.slf4j", "slf4j-api")
