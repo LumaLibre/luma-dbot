@@ -38,6 +38,8 @@ class CustomTagModule : Module {
         embedBuilder.setDescription("""
             To be approved, your custom tag request must adhere to the following criteria:
 
+            - **Single-word**: The tag name must be a single, continuous word without spaces.
+            - **No Special Characters or Numbers:** The tag name should not contain numbers or random characters.
             - **Uniqueness:** The tag name must not already exist on the server.
             - **Appropriate Content:** The tag must be free of any language that is offensive, political, or sexual in nature.
             - **Length:** The tag name must be a minimum of three characters long.

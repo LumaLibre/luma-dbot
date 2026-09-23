@@ -30,8 +30,6 @@ object Util {
             java.lang.Enum.valueOf(enumClass, name.uppercase())
         } catch (e: IllegalArgumentException) {
             null
-        } catch (e: NullPointerException) {
-            null
         }
     }
 
